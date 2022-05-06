@@ -34,36 +34,80 @@ to
 See all the [mailing lists](https://www.tensorflow.org/community/forums).
 
 ## Install
+TensorFlow is tested and supported on the following 64-bit systems:
+<pre>
+  ● Python 3.7–3.10                                   ● macOS 10.12.6 (Sierra) or
+                                                        later (no GPU support)
+  ● Ubuntu 16.04 or later
 
-See the [TensorFlow install guide](https://www.tensorflow.org/install) for the
-[pip package](https://www.tensorflow.org/install/pip), to
-[enable GPU support](https://www.tensorflow.org/install/gpu), use a
-[Docker container](https://www.tensorflow.org/install/docker), and
-[build from source](https://www.tensorflow.org/install/source).
+  ● Windows 7 or later                                ● WSL2 via Windows 10 19044 or
+    (with C++ redistributable)                          higher including GPUs (Experimental)
+</pre>
 
-To install the current release, which includes support for
-[CUDA-enabled GPU cards](https://www.tensorflow.org/install/gpu) *(Ubuntu and
-Windows)*:
+**Download a package**
 
+*System Requirements*
+<pre>
+● Python 3.7–3.10                                               ● pip 19.0 or later 
+    ◆ Python 3.10 support requires TensorFlow 2.8 or later.       (requires manylinux2010 support)
+    ◆ Python 3.9 support requires TensorFlow 2.5 or later.      ● Ubuntu 16.04 or later (64-bit)
+    ◆ Python 3.8 support requires TensorFlow 2.2 or later.      ● GPU support requires a CUDA®-enabled card 
+● macOS 10.12.6 (Sierra) or later (64-bit) (no GPU support)       (Ubuntu and Windows)
+    ◆ macOS requires pip 20.3 or later
+● Windows 7 or later (64-bit)
+    ◆ Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017 and 2019
+</pre> 
+*Hardware Requirements*
+<pre>
+● Starting with TensorFlow 1.6, binaries use AVX instructions which may not run on older CPUs.
+● Read the GPU support guide to set up a CUDA®-enabled GPU card on Ubuntu or Windows.
+</pre>
+
+*Install Python development environment*
+<pre>
+```python
+python3 --version
+pip3 --version
 ```
-$ pip install tensorflow
+</pre>
+*Create a virtual environment*
+<pre>
+For macOS
+```python
+$ python3 -m venv --system-site-packages ./venv
+$ source ./venv/bin/activate
+$ . ./venv/bin/activate.fish
+$ source ./venv/bin/activate.csh
+(venv) $ pip install --upgrade pip(venv)
+(venv) $ pip list
+(venv) $ deactivate
 ```
+</pre>
+*Install the TensorFlow pip package*
+<pre>
+For virtual environment
 
-A smaller CPU-only package is also available:
-
+```python
+(venv) $ pip install --upgrade tensorflow
+# verify installation
+(venv) $ python -c "import tensorflow as tf;print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
 ```
-$ pip install tensorflow-cpu
+For system install
+
+```python
+$ pip3 install --user --upgrade tensorflow  # install in $HOME
+# verify installation
+$ python3 -c "import tensorflow as tf;print(tf.reduce_sum(tf.random.normal([1000, 1000])))"
 ```
+If tensor returned, continue to quickstart to get started.
+</pre>
+For more details, please refer to the following:
+</br> [pip package](https://www.tensorflow.org/install/pip) </br>
+[enable GPU support](https://www.tensorflow.org/install/gpu)</br>
+[Docker container](https://www.tensorflow.org/install/docker)</br>
+[build from source](https://www.tensorflow.org/install/source)</br>
 
-To update TensorFlow to the latest version, add `--upgrade` flag to the above
-commands.
-
-*Nightly binaries are available for testing using the
-[tf-nightly](https://pypi.python.org/pypi/tf-nightly) and
-[tf-nightly-cpu](https://pypi.python.org/pypi/tf-nightly-cpu) packages on PyPi.*
-
-#### *Try your first TensorFlow program*
-
+**Quickstart**
 ```shell
 $ python
 ```
@@ -77,8 +121,7 @@ $ python
 b'Hello, TensorFlow!'
 ```
 
-For more examples, see the
-[TensorFlow tutorials](https://www.tensorflow.org/tutorials/).
+For more examples, check out [tutorials](https://www.tensorflow.org/tutorials)
 
 ## Contribution guidelines
 
